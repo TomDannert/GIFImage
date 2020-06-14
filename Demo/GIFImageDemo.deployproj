@@ -65,6 +65,16 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
+        <DeployFile Include="iOSDevice64\Debug\GIFImageDemo" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>GIFImageDemo.app\</RemoteDir>
+            <RemoteName>GIFImageDemo</RemoteName>
+            <DeployClass>ProjectOutput</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+            <Required>True</Required>
+        </DeployFile>
         <DeployFile Include="$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_320x480.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>GIFImageDemo.app\</RemoteDir>
             <RemoteName>Default.png</RemoteName>
@@ -154,16 +164,6 @@
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
-        </DeployFile>
-        <DeployFile Include="iOSDevice64\Debug\GIFImageDemo" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>GIFImageDemo.app\</RemoteDir>
-            <RemoteName>GIFImageDemo</RemoteName>
-            <DeployClass>ProjectOutput</DeployClass>
-            <Operation>1</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-            <Required>True</Required>
         </DeployFile>
         <DeployFile Include="iOSDevice64\Debug\PhotoEditorDemo.entitlements" Condition="'$(Config)'=='Debug'">
             <RemoteDir>GIFImageDemo.app\..\</RemoteDir>
@@ -411,6 +411,16 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
+        <DeployFile Include="iOSDevice32\Debug\GIFImageDemo" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>GIFImageDemo.app\</RemoteDir>
+            <RemoteName>GIFImageDemo</RemoteName>
+            <DeployClass>ProjectOutput</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+            <Required>True</Required>
+        </DeployFile>
         <DeployFile Include="$(BDS)\bin\Artwork\iOS\iPad\FM_LaunchImagePortrait_768x1004.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>GIFImageDemo.app\</RemoteDir>
             <RemoteName>Default~ipad.png</RemoteName>
@@ -536,16 +546,6 @@
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
-        </DeployFile>
-        <DeployFile Include="iOSDevice32\Debug\GIFImageDemo" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>GIFImageDemo.app\</RemoteDir>
-            <RemoteName>GIFImageDemo</RemoteName>
-            <DeployClass>ProjectOutput</DeployClass>
-            <Operation>1</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-            <Required>True</Required>
         </DeployFile>
         <DeployFile Include="$(BDS)\bin\Artwork\iOS\iPhone\FM_LaunchImage_640x960.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>GIFImageDemo.app\</RemoteDir>
@@ -795,16 +795,6 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="Android\Debug\libGIFImageDemo.so" Condition="'$(Config)'=='Debug'">
-            <RemoteDir>GIFImageDemo\library\lib\armeabi-v7a\</RemoteDir>
-            <RemoteName>libGIFImageDemo.so</RemoteName>
-            <DeployClass>ProjectOutput</DeployClass>
-            <Operation>1</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-            <Required>True</Required>
-        </DeployFile>
         <DeployFile Include="$(BDS)\bin\Artwork\Android\FM_LauncherIcon_48x48.png" Condition="'$(Config)'=='Debug'">
             <RemoteDir>GIFImageDemo\res\drawable-mdpi\</RemoteDir>
             <RemoteName>ic_launcher.png</RemoteName>
@@ -921,6 +911,16 @@
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="Android\Debug\libGIFImageDemo.so" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>GIFImageDemo\library\lib\armeabi-v7a\</RemoteDir>
+            <RemoteName>libGIFImageDemo.so</RemoteName>
+            <DeployClass>ProjectOutput</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+            <Required>True</Required>
         </DeployFile>
         <DeployFile Include="$(NDKBasePath)\prebuilt\android-arm\gdbserver\gdbserver" Condition="'$(Config)'=='Debug'">
             <RemoteDir>GIFImageDemo\library\lib\armeabi-v7a\</RemoteDir>

@@ -1,8 +1,8 @@
 { *****************************************************************************
                             GIF for Firemonkey
                 Author: Thomas Dannert <thomas@dannert.com>
-                         Website: www.dannert.com
-{ *****************************************************************************
+				               https://github.com/TomDannert
+  *****************************************************************************
   GIF for Firemonkey is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3as
   published by the Free Software Foundation and appearing in the included file.
@@ -10,7 +10,7 @@
   WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
   FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
   for more details.
-****************************************************************************** }
+  **************************************************************************** }
 
 unit FMX.GIFRegs;
 
@@ -108,7 +108,5 @@ begin
   RegisterPropertyEditor(TypeInfo(TGIFData), nil, '', TGIFDataProperty);
   RegisterComponents(GIF_Category, [TGIFImage]);
 end;
-
-
 
 end.
