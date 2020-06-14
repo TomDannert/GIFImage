@@ -1,2 +1,10 @@
-# GIFImage
- Delphi Firemonkey GIFImage
+#FMX GIFImage/Player
+
+TGIFImage is a free GIF Viewer/Player Component for the Delphi Firemonkey Framework. 
+
+TGIFImage works on all Firemonkey Platforms. 
+
+- Windows
+- Android
+- iOS
+- MacOS
