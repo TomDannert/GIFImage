@@ -1173,7 +1173,6 @@ var
                       Buffer.Read(LoopCount, SizeOf(LoopCount));
                       Dec(BlockSize, SizeOf(LoopCount));
                       if LoopCount > 0 then Inc(LoopCount);
-                      //FMetadata.AddMetaItem(SMetaAnimationLoops, LoopCount);
                     end;
                   GIF_AppBufferExtension:
                     begin

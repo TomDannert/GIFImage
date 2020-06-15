@@ -26,9 +26,3 @@ TGIFImage requires Delphi 10.1 Berlin, 10.2 Tokyo, 10.3 Rio, 10.4 Sydney or late
 - Open the package PACKAGES/FMXGIF100.dpk, compile and then install the package. 
 - Add the directory where the TGIFImage source is located to your Win32 library path in the IDE. 
 
-### ⚙️&nbsp;&nbsp;&nbsp;&nbsp;TGIFImage in Action
-
-<video controls loop>
-  <source src="https://github.com/TomDannert/GIFImage/blob/master/Samples/delphi-ide.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
