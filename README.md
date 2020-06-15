@@ -12,4 +12,3 @@
   <img src="https://img.shields.io/github/stars/TomDannert/GIFImage?style=flat-square">
 </p>
 
-# GIFImage for Delphi Firemonkey
