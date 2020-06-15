@@ -29,6 +29,6 @@ TGIFImage requires Delphi 10.1 Berlin, 10.2 Tokyo, 10.3 Rio, 10.4 Sydney or late
 ### ⚙️&nbsp;&nbsp;&nbsp;&nbsp;TGIFImage in Action
 
 <video controls loop>
-  <source src="https://github.com/TomDannert/GIFImage/blob/master/Res/delphi-ide.mp4" type="video/mp4">
+  <source src="https://github.com/TomDannert/GIFImage/blob/master/Samples/delphi-ide.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
