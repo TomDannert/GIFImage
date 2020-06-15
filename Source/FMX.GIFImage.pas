@@ -1,16 +1,16 @@
-{ *****************************************************************************
+{ ******************************************************************************
                             GIFImage for Firemonkey
             Copyright (C) 2020 by Thomas Dannert <thomas@dannert.com>
                       https://github.com/TomDannert/GifImage
-  *****************************************************************************
+  ******************************************************************************
   GIFImage for Firemonkey is free software: you can redistribute it and / or
   modify it under the terms of the GNU Lesser General Public License version 
   published by the Free Software Foundation and appearing in the included file.
-  GIF for Firemonkey is distributed in the hope that it will be useful, but
+  GIFImage for Firemonkey is distributed in the hope that it will be useful, but
   WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
   FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
   for more details.
-  **************************************************************************** }
+  ****************************************************************************** }
 
 unit FMX.GIFImage;
 
