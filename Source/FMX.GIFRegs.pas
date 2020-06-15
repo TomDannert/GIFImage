@@ -1,7 +1,7 @@
 { *****************************************************************************
                             GIF for Firemonkey
-                Author: Thomas Dannert <thomas@dannert.com>
-				               https://github.com/TomDannert
+            Copyright (C) 2020 by Thomas Dannert <thomas@dannert.com>
+                         https://github.com/TomDannert
   *****************************************************************************
   GIF for Firemonkey is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3as
