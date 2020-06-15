@@ -154,6 +154,7 @@ type
     FSpeed                : Single;
     FScreenScale          : Single;
     FBitmap               : TBitmap;
+    FFill                 : TBrush;
     FGIFData              : TGIFData;
     FPlayer               : TTimer;
     FLoop                 : Boolean;
@@ -167,11 +168,13 @@ type
     procedure SetIsPlaying(const AValue : Boolean);
     procedure SetActiveFrame(const AValue : Integer);
     procedure SetSpeed(const AValue : Single);
+    procedure SetFill(const AValue : TBrush);
     function GetIsPlaying : Boolean;
     function GetIsEmpty : Boolean;
     procedure ScaleChangedHandler(const Sender: TObject; const Msg: TMessage);
     procedure DrawBitmap(const Canvas: TCanvas; const ARect: TRectF; const ABitmap: TBitmap; const AOpacity: Single = 1.0);
     procedure DoRenderNextFrame(Sender : TObject);
+    procedure DoFillChanged(Sender : TObject);
   protected
     procedure DoImageChanged; virtual;
     procedure Paint; override;
@@ -192,21 +195,23 @@ type
     property Bitmap: TBitmap read FBitmap write SetBitmap;
     property IsEmpty : Boolean read GetIsEmpty;
   published
-    property Align;
-    property Anchors;
     property AutoPlay : Boolean read FAutoPlay write FAutoPlay default True;
     property ActiveFrame : Integer read FActiveFrame write SetActiveFrame default 0;
+    property DisableInterpolation: Boolean read FDisableInterpolation write FDisableInterpolation default False;
+    property Fill : TBrush read FFill write SetFill;
+    property GIFData : TGIFData read FGIFData write SetGIFData;
     property IsPlaying : Boolean read GetIsPlaying write SetIsPlaying stored False;
-    property Speed : Single read FSpeed write SetSpeed stored IsSpeedStored;
     property Loop : Boolean read FLoop write FLoop default True;
+    property Speed : Single read FSpeed write SetSpeed stored IsSpeedStored;
+    property WrapMode: TImageWrapMode read FWrapMode write SetWrapMode default TImageWrapMode.Fit;
+    property Align;
+    property Anchors;
     property ClipChildren default False;
     property ClipParent default False;
     property Cursor default crDefault;
-    property DisableInterpolation: Boolean read FDisableInterpolation write FDisableInterpolation default False;
     property DragMode default TDragMode.dmManual;
     property EnableDragHighlight default True;
     property Enabled default True;
-    property GIFData : TGIFData read FGIFData write SetGIFData;
     property Locked default False;
     property Height;
     property Hint;
@@ -222,19 +227,16 @@ type
     property Size;
     property Visible default True;
     property Width;
-    property WrapMode: TImageWrapMode read FWrapMode write SetWrapMode default TImageWrapMode.Fit;
     property ParentShowHint;
     property ShowHint;
+    property OnChange : TNotifyEvent read FOnChange write FOnChange;
     property OnPlay : TNotifyEvent read FOnPlay write FOnPlay;
     property OnStop : TNotifyEvent read FOnStop write FOnStop;
-    property OnChange : TNotifyEvent read FOnChange write FOnChange;
-    {Drag and Drop events}
     property OnDragEnter;
     property OnDragLeave;
     property OnDragOver;
     property OnDragDrop;
     property OnDragEnd;
-    {Mouse events}
     property OnClick;
     property OnDblClick;
     property OnMouseDown;
@@ -1569,6 +1571,8 @@ begin
   inherited;
   FGIFData        := TGIFImageData.Create(Self);
   FBitmap         := TBitmap.Create;
+  FFill           := TBrush.Create(TBrushKind.None, TAlphaColors.White);
+  FFill.OnChanged := DoFillChanged;
   FWrapMode       := TImageWrapMode.Fit;
   FPlayer := TTimer.Create(nil);
   FPlayer.Enabled := False;
@@ -1594,6 +1598,7 @@ begin
   FreeAndNil(FPlayer);
   FreeAndNil(FGIFData);
   FreeAndNil(FBitmap);
+  FreeAndNil(FFill);
   inherited;
 end;
 
@@ -1605,6 +1610,16 @@ begin
     ActiveFrame := 0;
   end;
   DoChange;
+end;
+
+procedure TGIFImage.SetFill(const AValue: TBrush);
+begin
+  FFill.Assign(AValue);
+end;
+
+procedure TGIFImage.DoFillChanged(Sender: TObject);
+begin
+  Repaint;
 end;
 
 procedure TGIFImage.DoPlay;
@@ -1678,10 +1693,14 @@ procedure TGIFImage.Paint;
 var
   R: TRectF;
 begin
-  DrawBitmap(Canvas, LocalRect, FBitmap, AbsoluteOpacity);
+  R := LocalRect;
+  if FFill.Kind <> TBrushKind.None then
+  begin
+    Canvas.FillRect(R, 0, 0, [], AbsoluteOpacity, FFill);
+  end;
+  DrawBitmap(Canvas, R, FBitmap, AbsoluteOpacity);
   if (csDesigning in ComponentState) and not Locked and not FInPaintTo then
   begin
-    R := LocalRect;
     InflateRect(R, -0.5, -0.5);
     Canvas.DrawDashRect(R, 0, 0, AllCorners, AbsoluteOpacity, $A0909090);
   end;
@@ -1751,7 +1770,7 @@ end;
 
 procedure TGIFImage.Play;
 begin
-  if not (csDesigning in ComponentState) and not IsPlaying and not FGIFData.IsEmpty then
+  if not (csDesigning in ComponentState) and not IsPlaying and (FGIFData.FrameCount > 1) and not FGIFData.IsEmpty then
   begin
     FPlayer.Interval := 1;
     FPlayer.Enabled := True;
