@@ -12,13 +12,16 @@
   <img src="https://img.shields.io/github/stars/TomDannert/GIFImage?style=flat-square">
 </p>
 
-Description 
-Full Firemonkey implementation of the graphics interchange format (GIF87a and GIF89a specification with most common GIF extensions). 
+### ⚙️&nbsp;&nbsp;&nbsp;&nbsp;Description
 
-Requirements
+Full Firemonkey implementation of the graphics interchange format (GIF87a and GIF89a specification with most common GIF extensions). Transparent and Compressed GIF's are supported. 
+
+### ⚙️&nbsp;&nbsp;&nbsp;&nbsp;Requirements 
+
 TGIFImage requires Delphi 10.1 Berlin, 10.2 Tokyo, 10.3 Rio, 10.4 Sidney (Prof/Enterprise/Architect) or later
 
-Installing the Package
+### ⚙️&nbsp;&nbsp;&nbsp;&nbsp;Installation 
+
 - Download the git repository.
 - Open the package PACKAGES/FMXGIF100.dpk, compile and then install the package. 
 - Add the directory where the TGIFImage source is located to your Win32 library path in the IDE. 
