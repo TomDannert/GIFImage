@@ -18,7 +18,7 @@ Full Firemonkey implementation of the graphics interchange format (GIF87a and GI
 
 ### ⚙️&nbsp;&nbsp;&nbsp;&nbsp;Requirements 
 
-TGIFImage requires Delphi 10.1 Berlin, 10.2 Tokyo, 10.3 Rio, 10.4 Sydney or later
+TGIFImage requires Delphi 10.1 Berlin, 10.2 Tokyo, 10.3 Rio, 10.4 Sydney or later. Older versions probably work too, but I haven't tested that.
 
 ### ⚙️&nbsp;&nbsp;&nbsp;&nbsp;Installation 
 
