@@ -32,4 +32,4 @@ After installation select "GIF" in the Delphi Component-Palette. Place a TGIFIma
 
 ### ⚙️&nbsp;&nbsp;&nbsp;&nbsp;License
 
-`GIFImage for Firemonkey` is free and open-source software licensed under the [MIT License](https://github.com/TomDannert/GIFImage/blob/master/LICENSE). 
+`GIFImage for Firemonkey` is free and open-source software licensed under the [GNU GENERAL PUBLIC LICENSE](https://github.com/TomDannert/GIFImage/blob/master/LICENSE). 
