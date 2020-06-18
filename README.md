@@ -12,6 +12,15 @@
   <img src="https://img.shields.io/github/stars/TomDannert/GIFImage?style=flat-square">
 </p>
 
+
+<p align="center">
+  Please "star" (like) this project in GitHub! It's cost nothing but help to reference the code.
+</p> 
+</p><br>
+<p align="center">
+  <img src="https://github.com/TomDannert/GIFImage/blob/master/Res/star.jpg">
+</p>
+
 ### ⚙️&nbsp;&nbsp;&nbsp;&nbsp;Description
 
 Full Firemonkey implementation of the graphics interchange format (GIF87a and GIF89a specification with most common GIF extensions). Transparent and compressed GIF's are supported. 
