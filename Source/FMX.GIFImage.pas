@@ -4,7 +4,7 @@
                       https://github.com/TomDannert/GifImage
   ******************************************************************************
   GIFImage for Firemonkey is free software: you can redistribute it and / or
-  modify it under the terms of the GNU Lesser General Public License version 
+  modify it under the terms of the GNU Lesser General Public License version
   published by the Free Software Foundation and appearing in the included file.
   GIFImage for Firemonkey is distributed in the hope that it will be useful, but
   WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
@@ -23,8 +23,6 @@ uses
   System.Generics.Collections,
   System.UITypes,
   System.Messaging,
-  System.Threading,
-  System.SyncObjs,
   FMX.Types,
   FMX.Controls,
   FMX.Objects,
@@ -757,6 +755,15 @@ begin
   end;
 end;
 
+function CompareBytes(ABytes : array of Byte; AValue : String) : Boolean;
+var
+  Buffer : TBytes;
+begin
+  SetLength(Buffer, Length(ABytes));
+  Move(ABytes[0], Buffer[0], Length(ABytes));
+  Result := TEncoding.Ascii.GetString(Buffer, 0, Length(Buffer)) = AValue;
+end;
+
 { **************************************************************************** }
 { TBufferedStream }
 { **************************************************************************** }
@@ -1069,6 +1076,7 @@ destructor TGIFData.Destroy;
 begin
   InternalClear;
   FreeAndNil(FStream);
+  FreeAndNil(FFrames);
   FreeAndNil(FCachedFrame);
   inherited Destroy;
 end;
@@ -1095,15 +1103,6 @@ begin
   else begin
     inherited;
   end;
-end;
-
-function CompareBytes(ABytes : array of Byte; AValue : String) : Boolean;
-var
-  Buffer : TBytes;
-begin
-  SetLength(Buffer, Length(ABytes));
-  Move(ABytes[0], Buffer[0], Length(ABytes));
-  Result := TEncoding.Ascii.GetString(Buffer, 0, Length(Buffer)) = AValue;
 end;
 
 procedure TGIFData.LoadFromStream(AStream : TStream);
