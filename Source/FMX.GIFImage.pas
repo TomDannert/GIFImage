@@ -180,6 +180,7 @@ type
     procedure DoPlay; virtual;
     procedure DoStop; virtual;
     procedure DoChange; virtual;
+    procedure VisibleChanged; override;
     function IsSpeedStored : Boolean;
   public
     constructor Create(AOwner: TComponent); override;
@@ -1738,6 +1739,27 @@ procedure TGIFImage.Loaded;
 begin
   inherited;
   if not IsEmpty then
+  begin
+    FActiveFrame := Max(0, Min(FActiveFrame, FGIFData.FrameCount - 1));
+    FGIFData.Render(FActiveFrame, FBitmap);
+    if Visible and AutoPlay then
+    begin
+      Play;
+    end;
+  end;
+end;
+
+procedure TGIFImage.VisibleChanged;
+begin
+  inherited;
+  if not Visible then
+  begin
+    if IsPlaying then
+    begin
+      Stop;
+    end;
+  end
+  else if not IsEmpty then
   begin
     FActiveFrame := Max(0, Min(FActiveFrame, FGIFData.FrameCount - 1));
     FGIFData.Render(FActiveFrame, FBitmap);
